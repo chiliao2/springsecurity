@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -19,18 +20,20 @@ public class Application extends WebMvcConfigurerAdapter {
         SpringApplication.run(Application.class, args);
     }
 
+    @Configuration
     class MyWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
         @Autowired
         private UserService userService;
 
         @Bean
-        private PasswordEncoder passwordEncoder() {
+        public PasswordEncoder passwordEncoder() {
             return new BCryptPasswordEncoder();
         }
 
         /**
          * 配置各种url权限
+         *
          * @param http
          * @throws Exception
          */
@@ -41,6 +44,7 @@ public class Application extends WebMvcConfigurerAdapter {
 
         /**
          * 配置访问用户的service以及加密方式
+         *
          * @param auth
          * @throws Exception
          */
