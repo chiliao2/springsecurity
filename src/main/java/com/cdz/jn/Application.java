@@ -16,11 +16,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
+@Configuration
 public class Application extends WebMvcConfigurerAdapter {
     public static void main(String[] args) {
         System.setProperty("spring.config.name", "Application");
         SpringApplication.run(Application.class, args);
     }
+
 
     @EnableGlobalMethodSecurity(prePostEnabled = true)//开启security注解
     @Configuration
@@ -29,10 +31,8 @@ public class Application extends WebMvcConfigurerAdapter {
         @Autowired
         private UserService userService;
 
-        @Bean
-        public PasswordEncoder passwordEncoder() {
-            return new BCryptPasswordEncoder();
-        }
+        @Autowired
+        private PasswordEncoder passwordEncoder;
 
         /**
          * 配置各种url权限
@@ -55,7 +55,7 @@ public class Application extends WebMvcConfigurerAdapter {
          */
         @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+            auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
         }
     }
 }
