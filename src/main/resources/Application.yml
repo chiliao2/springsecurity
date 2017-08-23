@@ -10,3 +10,6 @@ spring:
         hbm2ddl:
           auto: update
     show-sql: true
+  mvc:
+    view.prefix: /
+    view.suffix: .html
