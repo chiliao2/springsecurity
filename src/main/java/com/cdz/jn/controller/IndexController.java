@@ -9,6 +9,6 @@ public class IndexController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginForm() {
-        return "login";
+        return "login_1";
     }
 }

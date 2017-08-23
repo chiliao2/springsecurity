@@ -11,5 +11,6 @@ spring:
           auto: update
     show-sql: true
   mvc:
-    view.prefix: /
-    view.suffix: .html
+    view:
+      prefix: /
+      suffix: .html
