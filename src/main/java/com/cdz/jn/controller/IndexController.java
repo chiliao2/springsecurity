@@ -11,4 +11,14 @@ public class IndexController {
     public String loginForm() {
         return "login_1";
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String loginSuccess() {
+        return "index";
+    }
+
+    @RequestMapping(value = "/403")
+    public String accessDenied() {
+        return "accessDenied";
+    }
 }

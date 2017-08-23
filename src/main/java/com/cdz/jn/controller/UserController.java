@@ -5,6 +5,7 @@ import com.cdz.jn.entity.User;
 import com.cdz.jn.repository.RoleRepository;
 import com.cdz.jn.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,6 +58,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @PreAuthorize("hasRole('USER')")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
