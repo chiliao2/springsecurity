@@ -29,11 +29,21 @@ public class Application extends WebMvcConfigurerAdapter {
             return new BCryptPasswordEncoder();
         }
 
+        /**
+         * 配置各种url权限
+         * @param http
+         * @throws Exception
+         */
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.csrf().disable();
         }
 
+        /**
+         * 配置访问用户的service以及加密方式
+         * @param auth
+         * @throws Exception
+         */
         @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
             auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
