@@ -40,6 +40,8 @@ public class Application extends WebMvcConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.csrf().disable();
+            http.authorizeRequests().antMatchers("/", "/login", "/login_1.html").permitAll().anyRequest().authenticated();
+            http.formLogin().loginPage("/login").successForwardUrl("/index.html").failureForwardUrl("/login_1.html");
         }
 
         /**
