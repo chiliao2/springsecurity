@@ -17,10 +17,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
-    public static void main(String[] args) {
-        System.setProperty("spring.config.name", "Application");
-        SpringApplication.run(Application.class, args);
-    }
+//    public static void main(String[] args) {
+//        System.setProperty("spring.config.name", "Application");
+//        SpringApplication.run(Application.class, args);
+//    }
 
     @EnableGlobalMethodSecurity(prePostEnabled = true)//开启security注解
     @Configuration
