@@ -15,7 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-//@SpringBootApplication
+@SpringBootApplication
 public class Application {
     public static void main(String[] args) {
 //        System.setProperty("spring.config.name", "Application");
