@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -62,4 +64,13 @@ public class UserController {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    @RequestMapping(value = "/find_page", method = RequestMethod.GET)
+    public Object findPage() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("小红", "喜欢语文书");
+        map.put("小网", "喜欢数学");
+        return map;
+    }
+
 }
