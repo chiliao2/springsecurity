@@ -34,9 +34,7 @@ public class UserService implements UserDetailsService {
         //获得当前用户的url权限信息
         List<Permission> permissions = permissionRepository.queryCurrentUserPermissions(user.getUsername());
         if (permissions != null && permissions.get(0) != null) {
-            for (Permission p : permissions) {
-                gas.add(new SimpleGrantedAuthority(p.getName()));
-            }
+            permissions.forEach(p -> gas.add(new SimpleGrantedAuthority(p.getName())));
         }
 
         //获得用户的角色信息

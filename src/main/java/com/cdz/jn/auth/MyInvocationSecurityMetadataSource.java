@@ -24,12 +24,12 @@ public class MyInvocationSecurityMetadataSource implements FilterInvocationSecur
         map = new HashMap<String, Collection<ConfigAttribute>>();
         List<Permission> permissions = permissionRepository.findAll();
         if (permissions != null) {
-            for (Permission p : permissions) {
+            permissions.forEach((p -> {
                 Collection<ConfigAttribute> cas = new ArrayList<ConfigAttribute>();
                 ConfigAttribute ca = new SecurityConfig(p.getName());
                 cas.add(ca);
                 map.put(p.getUrl(), cas);
-            }
+            }));
         }
     }
 
