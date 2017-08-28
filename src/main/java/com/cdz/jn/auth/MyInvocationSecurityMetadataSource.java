@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @Component
-public class MyInvocationSecurityMetadataSourceService implements FilterInvocationSecurityMetadataSource {
+public class MyInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
     @Autowired
     private PermissionRepository permissionRepository;

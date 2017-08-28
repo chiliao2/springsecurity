@@ -17,7 +17,7 @@ public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor imp
     private static final Log LOGGER = LogFactory.getLog(MyFilterSecurityInterceptor.class);
 
     @Autowired
-    private MyInvocationSecurityMetadataSourceService myInvocationSecurityMetadataSourceService;
+    private MyInvocationSecurityMetadataSource myInvocationSecurityMetadataSource;
 
     @Autowired
     public void setMyAccessDecisionManager(MyAccessDecisionManager myAccessDecisionManager) {
@@ -60,6 +60,6 @@ public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor imp
 
     @Override
     public SecurityMetadataSource obtainSecurityMetadataSource() {
-        return this.myInvocationSecurityMetadataSourceService;
+        return this.myInvocationSecurityMetadataSource;
     }
 }
