@@ -17,3 +17,14 @@ spring:
     view:
       prefix: /
       suffix: .html
+  #指定redis地址和端口
+  redis:
+    host: localhost
+    port: 6379
+    pool:
+      max-active: 5
+      max-wait: 1
+      max-idle: 8
+      min-idel: 0
+server:
+  port: 8081

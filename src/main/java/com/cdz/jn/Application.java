@@ -18,7 +18,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-//        System.setProperty("spring.config.name", "Application");
-//        SpringApplication.run(Application.class, args);
+        System.setProperty("spring.config.name", "Application");
+        SpringApplication.run(Application.class, args);
     }
 }
