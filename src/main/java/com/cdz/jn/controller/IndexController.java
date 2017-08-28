@@ -8,14 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
     public String loginForm() {
         return "login_1";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginSuccess() {
-        return "index";
     }
 
     @RequestMapping(value = "/403")

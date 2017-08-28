@@ -1,5 +1,7 @@
 package com.cdz.jn.config;
 
+import com.cdz.jn.handler.MyAuthenticationFailureHandler;
+import com.cdz.jn.handler.MyAuthenticationSuccessHandler;
 import com.cdz.jn.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -27,8 +29,8 @@ public class MyWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/", "/login", "/login_1.html").permitAll().anyRequest().authenticated();
-        http.formLogin().loginPage("/login").successForwardUrl("/index.html").failureForwardUrl("/login_1.html");
+        http.authorizeRequests().antMatchers("/", "/login").permitAll().anyRequest().authenticated();
+        http.formLogin().loginPage("/login").successHandler(new MyAuthenticationSuccessHandler()).failureHandler(new MyAuthenticationFailureHandler());
     }
 
     /**
