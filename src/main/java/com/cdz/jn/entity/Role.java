@@ -1,8 +1,8 @@
 package com.cdz.jn.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Role {
@@ -11,6 +11,10 @@ public class Role {
     private Integer id;
 
     private String name;
+
+    @ManyToMany
+    @JoinTable(name = "role_permission")
+    private Set<Permission> permissions = new HashSet<Permission>();
 
     public Integer getId() {
         return id;
@@ -26,5 +30,13 @@ public class Role {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(Set<Permission> permissions) {
+        this.permissions = permissions;
     }
 }
